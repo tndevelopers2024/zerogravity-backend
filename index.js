@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 // ---------------------------
 app.use(
   cors({
-    origin: "http://localhost:5175",   // React frontend
+    origin: ["http://localhost:5175","https://zerogravity-frontend-peach.vercel.app"],   // React frontend
     methods: "GET,POST,PUT,DELETE,OPTIONS",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true,
