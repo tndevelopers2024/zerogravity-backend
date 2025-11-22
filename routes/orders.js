@@ -22,7 +22,8 @@ router.post('/', async (req, res) => {
             replicaEbook,
             imageLink,
             quantity,
-            logo
+            logo,
+            deliveryAddress
         } = req.body;
 
         const newOrder = new Order({
@@ -41,7 +42,8 @@ router.post('/', async (req, res) => {
             replicaEbook,
             imageLink,
             quantity,
-            logo
+            logo,
+            deliveryAddress
         });
 
         await newOrder.save();

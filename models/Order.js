@@ -66,6 +66,37 @@ const orderSchema = new mongoose.Schema({
     logo: {
         type: String
     },
+    deliveryAddress: {
+        name: {
+            type: String,
+            required: true
+        },
+        phone: {
+            type: String,
+            required: true
+        },
+        address: {
+            type: String,
+            required: true
+        },
+        city: {
+            type: String,
+            required: true
+        },
+        state: {
+            type: String,
+            required: true
+        },
+        pincode: {
+            type: String,
+            required: true
+        },
+        country: {
+            type: String,
+            required: true,
+            default: 'India'
+        }
+    },
     status: {
         type: String,
         enum: ['pending', 'processing', 'completed', 'cancelled'],
