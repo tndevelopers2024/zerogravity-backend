@@ -1,4 +1,4 @@
-// Email Templates for Zero Gravity
+// Email Templates for Albums by Zero Gravity
 
 const baseTemplate = (content, preheader = '') => `
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ const baseTemplate = (content, preheader = '') => `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Zero Gravity</title>
+    <title>Albums by Zero Gravity</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
         
@@ -264,8 +264,8 @@ const baseTemplate = (content, preheader = '') => `
             </div>
             <div class="divider"></div>
             <p class="copyright">
-                © ${new Date().getFullYear()} Zero Gravity. All rights reserved.<br>
-                This email was sent to you as a registered user of Zero Gravity.
+                © ${new Date().getFullYear()} Albums by Zero Gravity. All rights reserved.<br>
+                This email was sent to you as a registered user of Albums by Zero Gravity.
             </p>
         </div>
     </div>
@@ -278,7 +278,7 @@ const adminNewUserTemplate = (userData) => {
     const content = `
         <h2 class="greeting">🎉 New User Registration</h2>
         <p class="content-text">
-            A new user has registered on the Zero Gravity platform and is awaiting your approval.
+            A new user has registered on the Albums by Zero Gravity platform and is awaiting your approval.
         </p>
         
         <div class="info-card">
@@ -331,12 +331,12 @@ const adminNewUserTemplate = (userData) => {
 // 2. User Registration Confirmation
 const userRegistrationConfirmationTemplate = (userData) => {
     const content = `
-        <h2 class="greeting">Welcome to Zero Gravity! 👋</h2>
+        <h2 class="greeting">Welcome to Albums by Zero Gravity! 👋</h2>
         <p class="content-text">
             Hi <strong>${userData.name}</strong>,
         </p>
         <p class="content-text">
-            Thank you for registering with Zero Gravity! We're excited to have you join our community of photo album professionals.
+            Thank you for registering with Albums by Zero Gravity! We're excited to have you join our community of photo album professionals.
         </p>
         
         <div class="highlight-box">
@@ -375,7 +375,7 @@ const userRegistrationConfirmationTemplate = (userData) => {
         <p class="content-text">
             📋 Our team will review your registration details<br>
             ✅ You'll receive an email notification once your account is approved<br>
-            🚀 After approval, you can start using all features of Zero Gravity
+            🚀 After approval, you can start using all features of Albums by Zero Gravity
         </p>
         
         <p class="content-text">
@@ -398,7 +398,7 @@ const userApprovedTemplate = (userData) => {
             Hi <strong>${userData.name}</strong>,
         </p>
         <p class="content-text">
-            Great news! Your Zero Gravity account has been approved and is now active. You can start exploring all the features we have to offer!
+            Great news! Your Albums by Zero Gravity account has been approved and is now active. You can start exploring all the features we have to offer!
         </p>
         
         <div class="highlight-box">
@@ -448,7 +448,7 @@ const userApprovedTemplate = (userData) => {
         </p>
         
         <p class="content-text" style="margin-top: 30px;">
-            Welcome aboard! We're thrilled to have you as part of the Zero Gravity family.
+            Welcome aboard! We're thrilled to have you as part of the Albums by Zero Gravity family.
         </p>
     `;
 
@@ -463,7 +463,7 @@ const userRejectedTemplate = (userData, reason = '') => {
             Hi <strong>${userData.name}</strong>,
         </p>
         <p class="content-text">
-            Thank you for your interest in Zero Gravity. After careful review, we regret to inform you that we are unable to approve your registration at this time.
+            Thank you for your interest in Albums by Zero Gravity. After careful review, we regret to inform you that we are unable to approve your registration at this time.
         </p>
         
         <div class="info-card">
@@ -510,7 +510,7 @@ const passwordResetTemplate = (userData, resetLink) => {
             Hi <strong>${userData.name}</strong>,
         </p>
         <p class="content-text">
-            We received a request to reset your password for your Zero Gravity account. If you didn't make this request, you can safely ignore this email.
+            We received a request to reset your password for your Albums by Zero Gravity account. If you didn't make this request, you can safely ignore this email.
         </p>
         
         <div class="highlight-box">

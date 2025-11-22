@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (to, subject, text, html) => {
     try {
         const info = await transporter.sendMail({
-            from: `"Zero Gravity" <${process.env.SMTP_EMAIL}>`, // sender address
+            from: `"Albums by Zero Gravity" <${process.env.SMTP_EMAIL}>`, // sender address
             to, // list of receivers
             subject, // Subject line
             text, // plain text body

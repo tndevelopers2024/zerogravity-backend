@@ -14,7 +14,7 @@ const {
 // Register User
 router.post('/register', async (req, res) => {
     try {
-        const { name, email, phone, businessName, gstNo, username, password } = req.body;
+        const { name, email, phone, businessName, gstNo, username, password, logo } = req.body;
 
         // Check if user exists
         const existingUser = await User.findOne({ $or: [{ email }, { username }] });
@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
 
         // Create User
         const newUser = new User({
-            name, email, phone, businessName, gstNo, username, password
+            name, email, phone, businessName, gstNo, username, password, logo
         });
         await newUser.save();
 

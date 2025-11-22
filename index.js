@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 // ---------------------------
 app.use(
   cors({
-    origin: ["http://localhost:5175","https://zerogravity-frontend-peach.vercel.app"],   // React frontend
+    origin: ["http://localhost:5175", "http://localhost:5174", "https://zerogravity-frontend-peach.vercel.app"],   // React frontend
     methods: "GET,POST,PUT,DELETE,OPTIONS",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true,
@@ -32,7 +33,7 @@ app.use(express.json());
 const connectDB = async () => {
   try {
     if (!process.env.MONGO_URI) {
-    console.warn('⚠️ MONGO_URI is not defined in .env. Database connection will fail.');
+      console.warn('⚠️ MONGO_URI is not defined in .env. Database connection will fail.');
       return;
     }
 
@@ -49,6 +50,10 @@ connectDB();
 // Routes
 // ---------------------------
 app.use('/api', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/orders', require('./routes/orders'));
+app.use('/api/upload', require('./routes/upload'));
+app.use('/uploads', express.static('uploads'));
 
 app.get('/', (req, res) => {
   res.send('Zero Gravity API is running');
