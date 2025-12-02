@@ -1,57 +1,47 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv');
 const User = require('./models/User');
+
+dotenv.config();
 
 const seedAdmin = async () => {
     try {
-        if (!process.env.MONGO_URI) {
-            console.error('❌ MONGO_URI is not defined in .env');
-            process.exit(1);
-        }
-
         await mongoose.connect(process.env.MONGO_URI);
-        console.log('✅ MongoDB Connected');
+        console.log('MongoDB Connected');
 
-        const adminEmail = 'admin@gmail.com';
-        const adminPassword = '123456';
+        const username = 'admin';
+        const password = '123456'; // Default password
+        const email = 'admin@zerogravity.com';
 
-        // Check if admin exists
-        const existingAdmin = await User.findOne({ email: adminEmail });
-        if (existingAdmin) {
-            console.log('⚠️ Admin user already exists.');
+        let user = await User.findOne({ username });
 
-            // Optional: Update existing user to be admin if they aren't
-            if (existingAdmin.role !== 'admin') {
-                existingAdmin.role = 'admin';
-                existingAdmin.status = 'approved';
-                await existingAdmin.save();
-                console.log('✅ Updated existing user to Admin role.');
-            }
-
-            process.exit(0);
+        if (user) {
+            console.log('Admin user found. Updating password...');
+            user.password = await bcrypt.hash(password, 10);
+            user.role = 'admin';
+            user.email = email; // Ensure email is set
+            await user.save();
+            console.log('Admin password updated to: 123456');
+        } else {
+            console.log('Admin user not found. Creating...');
+            const hashedPassword = await bcrypt.hash(password, 10);
+            user = await User.create({
+                firstName: 'Admin',
+                lastName: 'User',
+                username,
+                email,
+                password: hashedPassword,
+                role: 'admin',
+                phone: '0000000000',
+                isVerified: true
+            });
+            console.log('Admin user created with password: 123456');
         }
 
-        // Create Admin
-        const newAdmin = new User({
-            name: 'Super Admin',
-            email: adminEmail,
-            phone: '0000000000',
-            businessName: 'Zero Gravity HQ',
-            gstNo: 'N/A',
-            username: 'admin',
-            password: adminPassword, // In production, hash this!
-            role: 'admin',
-            status: 'approved'
-        });
-
-        await newAdmin.save();
-        console.log('✅ Admin user created successfully.');
-        console.log(`📧 Email: ${adminEmail}`);
-        console.log(`🔑 Password: ${adminPassword}`);
-
-        process.exit(0);
+        process.exit();
     } catch (error) {
-        console.error('❌ Error seeding admin:', error);
+        console.error('Error seeding admin:', error);
         process.exit(1);
     }
 };

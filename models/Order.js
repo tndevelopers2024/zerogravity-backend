@@ -1,111 +1,86 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    product: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    size: {
-        type: String,
-        required: true
-    },
-    bindingType: {
-        type: String,
-        enum: ['Layflat', 'Absolute Layflat', 'V-Cut', 'Book'],
-        required: true
-    },
-    paperType: {
-        type: String,
-        required: true
-    },
-    additionalPaper: {
-        type: String
-    },
-    coverType: {
-        type: String,
-        required: true
-    },
-    boxType: {
-        type: String,
-        enum: ['Regular', 'Matte', 'Glossy'],
-        required: true
-    },
-    bagType: {
-        type: String
-    },
-    calendarType: {
-        type: String
-    },
-    acrylicCalendar: {
-        type: Boolean,
-        default: false
-    },
-    replicaEbook: {
-        type: Boolean,
-        default: false
-    },
-    imageLink: {
-        type: String,
-        required: true
-    },
-    quantity: {
-        type: Number,
-        required: true,
-        min: 1
-    },
-    logo: {
-        type: String
-    },
-    deliveryAddress: {
-        name: {
-            type: String,
-            required: true
-        },
-        phone: {
-            type: String,
-            required: true
-        },
-        address: {
-            type: String,
-            required: true
-        },
-        city: {
-            type: String,
-            required: true
-        },
-        state: {
-            type: String,
-            required: true
-        },
-        pincode: {
-            type: String,
-            required: true
-        },
-        country: {
-            type: String,
-            required: true,
-            default: 'India'
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+
+    items: [
+        {
+            product: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
+            name: String,
+            image: String,
+            quantity: Number,
+            price: Number,
+
+            // Frame
+            selectedSize: { name: String, price: Number },
+
+            // Digital
+            selectedFormat: String,
+            downloadLink: String,
+
+            // Custom frame images
+            customizationImages: [String],
+
+            // E-Album Advanced Customization
+            ealbumCustomization: {
+                coverDesign: {
+                    title: String,
+                    template: String,  // 'template1', 'template2', 'template3'
+                    font: String,      // 'whimsical', 'vintage', 'enchanted'
+                    date: Date,
+                    color: String      // color name or hex
+                },
+                pages: [{
+                    pageNumber: Number,
+                    images: [String],  // URLs of images for this page
+                    layout: String     // 'single', 'double', 'grid'
+                }]
+            },
+
+            subtotal: Number
         }
+    ],
+
+    totalAmount: { type: Number, required: true },
+
+    deliveryAddress: {
+        name: String,
+        phone: String,
+        address: String,
+        city: String,
+        state: String,
+        pincode: String,
+        country: { type: String, default: "India" }
     },
+
+    paymentMethod: {
+        type: String,
+        enum: ["cod", "card", "upi", "netbanking"],
+        default: "cod"
+    },
+
+    paymentStatus: {
+        type: String,
+        enum: ["pending", "completed", "failed", "refunded"],
+        default: "pending"
+    },
+
     status: {
         type: String,
-        enum: ['pending', 'processing', 'completed', 'cancelled'],
-        default: 'pending'
+        enum: ["pending", "processing", "shipped", "delivered", "cancelled"],
+        default: "pending"
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
+
+    trackingNumber: String,
+    notes: String,
+
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Order', orderSchema);
+orderSchema.pre("save", function (next) {
+    this.updatedAt = Date.now();
+    next();
+});
+
+module.exports = mongoose.model("Order", orderSchema);

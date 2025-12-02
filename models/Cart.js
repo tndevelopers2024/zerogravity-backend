@@ -1,0 +1,47 @@
+const mongoose = require("mongoose");
+
+const cartSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true, unique: true },
+
+    items: [
+        {
+            product: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
+            quantity: { type: Number, min: 1, default: 1 },
+
+            // Frame
+            selectedSize: { name: String, price: Number },
+
+            // Digital
+            selectedFormat: String,
+
+            customizationImages: [String],
+
+            // E-Album Advanced Customization
+            ealbumCustomization: {
+                coverDesign: {
+                    title: String,
+                    template: String,
+                    font: String,
+                    date: Date,
+                    color: String
+                },
+                pages: [{
+                    pageNumber: Number,
+                    images: [String],
+                    layout: String
+                }]
+            },
+
+            addedAt: { type: Date, default: Date.now }
+        }
+    ],
+
+    updatedAt: { type: Date, default: Date.now }
+});
+
+cartSchema.pre("save", function (next) {
+    this.updatedAt = Date.now();
+    next();
+});
+
+module.exports = mongoose.model("Cart", cartSchema);

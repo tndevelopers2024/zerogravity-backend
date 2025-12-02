@@ -1,26 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+const userSchema = new mongoose.Schema({
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    username: { type: String, unique: true, required: true },
+    email: { type: String, unique: true, required: true },
     phone: { type: String, required: true },
-    businessName: { type: String, required: true },
-    gstNo: { type: String, required: true },
-    username: { type: String, required: true, unique: true },
-    username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    logo: { type: String, default: '' },
-    status: {
-        type: String,
-        enum: ['pending', 'approved', 'rejected'],
-        default: 'pending'
+
+    isVerified: { type: Boolean, default: false },
+    otp: { type: String },
+    otpExpires: { type: Date },
+
+    address: {
+        street: String,
+        city: String,
+        state: String,
+        pincode: String,
+        country: { type: String, default: "India" }
     },
-    role: {
-        type: String,
-        enum: ['user', 'admin'],
-        default: 'user'
-    },
+
+    wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
+
+    role: { type: String, enum: ["user", "admin"], default: "user" },
+
     createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", userSchema);
