@@ -20,7 +20,7 @@ router.post("/image", upload.single("image"), (req, res) => {
 
   res.json({
     message: "Uploaded",
-    url: `${process.env.SERVER_URL || "http://localhost:5007"}/uploads/${req.file.filename}`,
+    url: `${process.env.SERVER_URL || "https://mitoslearning.co.in"}/uploads/${req.file.filename}`,
   });
 });
 
