@@ -16,7 +16,7 @@ const cartSchema = new mongoose.Schema({
 
             customizationImages: [String],
 
-            // E-Album Advanced Customization
+            // Album Advanced Customization
             ealbumCustomization: {
                 coverDesign: {
                     title: String,

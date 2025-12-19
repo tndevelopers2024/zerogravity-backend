@@ -31,7 +31,7 @@ exports.addToCart = async (req, res) => {
                 item.product.toString() === productId &&
                 (item.selectedSize?.name || "") === (selectedSize?.name || "") &&
                 (item.selectedFormat || "") === (selectedFormat || "") &&
-                !ealbumCustomization // Don't merge if it has e-album customization, treat as unique
+                !ealbumCustomization // Don't merge if it has album customization, treat as unique
         );
 
         if (existingIndex > -1) {

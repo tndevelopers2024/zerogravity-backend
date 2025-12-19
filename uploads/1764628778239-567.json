@@ -10,82 +10,82 @@
     {
       "pageNumber": 1,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746898-9845.jpg"
+        "http://localhost:5007/uploads/1764628746898-9845.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 2,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746902-6273.jpg"
+        "http://localhost:5007/uploads/1764628746902-6273.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 3,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746905-5345.jpg"
+        "http://localhost:5007/uploads/1764628746905-5345.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 4,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746909-2689.jpg"
+        "http://localhost:5007/uploads/1764628746909-2689.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 5,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746912-9400.jpg",
-        "https://mitoslearning.co.in/uploads/1764628746915-626.jpg",
-        "https://mitoslearning.co.in/uploads/1764628746915-626.jpg"
+        "http://localhost:5007/uploads/1764628746912-9400.jpg",
+        "http://localhost:5007/uploads/1764628746915-626.jpg",
+        "http://localhost:5007/uploads/1764628746915-626.jpg"
       ],
       "layout": "double"
     },
     {
       "pageNumber": 6,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746902-6273.jpg",
-        "https://mitoslearning.co.in/uploads/1764628746902-6273.jpg"
+        "http://localhost:5007/uploads/1764628746902-6273.jpg",
+        "http://localhost:5007/uploads/1764628746902-6273.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 7,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746898-9845.jpg"
+        "http://localhost:5007/uploads/1764628746898-9845.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 8,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746905-5345.jpg",
-        "https://mitoslearning.co.in/uploads/1764628746905-5345.jpg"
+        "http://localhost:5007/uploads/1764628746905-5345.jpg",
+        "http://localhost:5007/uploads/1764628746905-5345.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 9,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746915-626.jpg",
-        "https://mitoslearning.co.in/uploads/1764628746915-626.jpg"
+        "http://localhost:5007/uploads/1764628746915-626.jpg",
+        "http://localhost:5007/uploads/1764628746915-626.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 10,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746909-2689.jpg"
+        "http://localhost:5007/uploads/1764628746909-2689.jpg"
       ],
       "layout": "single"
     },
     {
       "pageNumber": 11,
       "images": [
-        "https://mitoslearning.co.in/uploads/1764628746912-9400.jpg"
+        "http://localhost:5007/uploads/1764628746912-9400.jpg"
       ],
       "layout": "single"
     },

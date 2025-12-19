@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema({
             // Custom frame images
             customizationImages: [String],
 
-            // E-Album Advanced Customization
+            // Album Advanced Customization
             ealbumCustomization: {
                 coverDesign: {
                     title: String,

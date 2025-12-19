@@ -1,0 +1,81 @@
+{
+  "coverDesign": {
+    "title": "Thanks",
+    "template": "template1",
+    "font": "whimsical",
+    "date": "2025-12-19",
+    "color": "blue"
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "images": [
+        "http://localhost:5007/uploads/1766149589700-8952.png"
+      ],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 2,
+      "images": [
+        "http://localhost:5007/uploads/1766149589709-9706.png"
+      ],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 3,
+      "images": [
+        "http://localhost:5007/uploads/1766149589724-6442.png"
+      ],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 4,
+      "images": [
+        "http://localhost:5007/uploads/1766149589700-8952.png"
+      ],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 5,
+      "images": [
+        "http://localhost:5007/uploads/1766149589709-9706.png"
+      ],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 6,
+      "images": [
+        "http://localhost:5007/uploads/1766149589724-6442.png"
+      ],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 7,
+      "images": [],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 8,
+      "images": [],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 9,
+      "images": [],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 10,
+      "images": [],
+      "layout": "single"
+    },
+    {
+      "pageNumber": 11,
+      "images": [
+        "http://localhost:5007/uploads/1766149744336-2788.png",
+        "http://localhost:5007/uploads/1766149753028-212.jpg"
+      ],
+      "layout": "double"
+    }
+  ]
+}

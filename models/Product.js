@@ -28,7 +28,7 @@ const productSchema = new mongoose.Schema({
     frameMaterials: [String],
     frameColors: [String],
 
-    /* ========= E-ALBUM FIELDS ========= */
+    /* ========= ALBUM FIELDS ========= */
     formats: [{ type: String, enum: ["PDF", "EPUB", "MOBI"] }],
     pageCount: Number,
     author: String,
@@ -40,6 +40,15 @@ const productSchema = new mongoose.Schema({
     /* ========= ADDITIONAL ========= */
     features: [String],
     benefits: [String],
+
+    /* ========= ALBUM SPECIFIC ========= */
+    albumSizes: [String], // e.g., "12X20", "8X10"
+    albumSheetOptions: [{
+        name: String, // e.g., "11SHEETS ( SOFT COVER)"
+        pageCount: Number, // e.g., 11
+        price: Number, // Additional price if any
+        isDefault: { type: Boolean, default: false }
+    }],
 
     /* ========= CUSTOMIZATION ========= */
     customization: {

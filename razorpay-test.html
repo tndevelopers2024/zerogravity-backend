@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Razorpay Live Test</title>
+</head>
+<body>
+
+<h2>Test Razorpay LIVE Checkout</h2>
+
+<button id="payBtn">Pay Now</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  document.getElementById("payBtn").onclick = function () {
+
+    var options = {
+      "key": "rzp_live_Rojkjh4UnVcj9i",         // <-- REPLACE WITH YOUR LIVE KEY
+      "amount": 50000,                      // paise (₹500)
+      "currency": "INR",
+      "name": "Live Test",
+      "description": "Testing Razorpay LIVE checkout",
+      "order_id": "order_RqkfRvQkgdoNOb",   // <-- REPLACE WITH ORDER ID FROM POSTMAN
+
+      "handler": function (response){
+        alert(
+          "SUCCESS\nPayment ID: " + response.razorpay_payment_id +
+          "\nOrder: " + response.razorpay_order_id +
+          "\nSignature: " + response.razorpay_signature
+        );
+      },
+
+      "prefill": {
+        "name": "Test User",
+        "email": "test@example.com",
+        "contact": "9999999999"
+      },
+
+      "theme": {
+        "color": "#3399cc"
+      }
+    };
+
+    var rzp1 = new Razorpay(options);
+
+    rzp1.on('payment.failed', function (response){
+      alert("FAILED:\n" + response.error.description);
+    });
+
+    rzp1.open();
+  };
+</script>
+
+</body>
+</html>
